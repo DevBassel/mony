@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import "../Style/NewProducts.css";
-import { useTranslations } from "next-intl";
-import { Link } from "../utils/navigation";
+import "@/src/Style/NewProducts.css";
+import { Link } from "@/src/utils/navigation";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 export default async function NewProducts({ data }) {
   const t = await getTranslations();
@@ -15,7 +13,10 @@ export default async function NewProducts({ data }) {
             console.log(el);
             return (
               <>
-                <div className="col-lg-6 col-md-12 new-0x1" key={el.id}>
+                <div
+                  className="col-lg-6 col-md-12 new-0x1"
+                  key={`New_Product_key_${el.id}`}
+                >
                   <div className="box mt-4">
                     <div className="info">
                       <h2 className="product_title" id="thefuckingdott">

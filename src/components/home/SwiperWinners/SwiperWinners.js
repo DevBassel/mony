@@ -1,7 +1,7 @@
 "use client";
 import { Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "../Style/swiperWinners.scss";
+import "@/src/Style/swiperWinners.scss";
 import SwiperWinnerCard from "./SwiperWinnerCard";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -65,7 +65,7 @@ function SwiperWinners() {
           {winners && winners.length > 0 ? (
             winners.map((item) => (
               <SwiperSlide
-                key={item.id}
+                key={`Winner__Key__${item.id}`}
                 className="d-flex justify-content-center align-items-center"
               >
                 <div>{<SwiperWinnerCard cardData={item} />}</div>

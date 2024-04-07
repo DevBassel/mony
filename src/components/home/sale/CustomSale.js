@@ -4,7 +4,8 @@ export default function CustomSale({ img, head, info, name, price }) {
     <div className={name}>
       <div className="info">
         <h4>{head}</h4>
-        <p>{info}</p>
+        <p dangerouslySetInnerHTML={{ __html: info }}></p>
+
         {/* <p>{price}LE</p> */}
       </div>
       <img src={`${img}`} alt="" />

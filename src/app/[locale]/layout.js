@@ -12,7 +12,7 @@ export const metadata = async () => {
   };
 };
 
-export default function RootLayout({ children, params: { locale } }) {
+export default function LocaleLayout({ children, params: { locale } }) {
   const messages = useMessages();
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>

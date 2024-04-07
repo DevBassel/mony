@@ -3,8 +3,8 @@ import ProductCard from "./ProductCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslations } from "next-intl";
-import { Link } from "../utils/navigation";
 import "@/src/Style/singleProducts.css";
+import { Link } from "@/src/utils/navigation";
 
 export default function ProductsBuys({ cate }) {
   const t = useTranslations();
@@ -13,10 +13,14 @@ export default function ProductsBuys({ cate }) {
   const [filterdMainData, setFilterdMainData] = useState([]);
   const [loader, setLoader] = useState(false);
   const [userWishList, setUserWishList] = useState([]);
-  const currUser = JSON.parse(localStorage.getItem("user")) || "";
+  const currUser =
+    (typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem("user"))) ||
+    "";
   const language =
-    window.localStorage.getItem("lng") === "ar" ? "arabic" : "english";
-  const lang = localStorage.getItem("lng");
+    typeof window !== "undefined" && window.localStorage.getItem("lng") === "ar"
+      ? "arabic"
+      : "english";
 
   async function getUserWishList() {
     if (currUser) {
@@ -54,6 +58,7 @@ export default function ProductsBuys({ cate }) {
     } else {
       fetchData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
   return (
@@ -89,7 +94,7 @@ export default function ProductsBuys({ cate }) {
                   mainData.filter((item) => el.slug === item.cat_info.slug)
                 );
               }}
-              key={el?.id}
+              key={`Cat__Key__${el?.id}`}
               className={`${el?.id === cateId ? "active" : ""} text-capitalize`}
             >
               {el.title}
@@ -104,7 +109,7 @@ export default function ProductsBuys({ cate }) {
             return (
               <ProductCard
                 el={el}
-                key={el.id}
+                key={`PRod___Card___key${el.id}`}
                 copone={el.copone}
                 fav={isItemInWishList ? "Favorite" : "Not Set"}
               />

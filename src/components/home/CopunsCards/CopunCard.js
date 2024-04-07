@@ -9,7 +9,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef } from "react";
 import axios from "axios";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "../utils/navigation";
+import { Link } from "@/src/utils/navigation";
 
 function CopunCard({ cardData, sender }) {
   const currentTime = new Date();

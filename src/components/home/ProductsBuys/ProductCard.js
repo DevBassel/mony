@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -11,11 +12,11 @@ import {
   deleteItem,
   setIsError,
   setWishList,
-} from "../Redux/Reducers/wishList";
+} from "@/src/Redux/Reducers/wishList";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "../utils/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/src/utils/navigation";
 
 export default function ProductCard({ el, copone, fav }) {
   const [isFavorite, setIsFavorite] = useState(fav || "Not Set");
@@ -126,6 +127,7 @@ export default function ProductCard({ el, copone, fav }) {
       cardIDRef.current = null;
       dispatch(setIsError());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);
 
   useEffect(() => {
@@ -145,6 +147,7 @@ export default function ProductCard({ el, copone, fav }) {
         dispatch(deleteItem(el.id));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFavorite]);
 
   console.log(isFavorite);

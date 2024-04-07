@@ -3,7 +3,7 @@
 import SwiperCard from "./SwiperCard";
 import { Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "../Style/swiperContainer.scss";
+import "@/src/Style/swiperContainer.scss";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import axios from "axios";
@@ -62,7 +62,7 @@ function SwiperCardsContainer() {
         >
           {soldOut?.map((item) => (
             <SwiperSlide
-              key={item.id}
+              key={`Swip___Key_cards__${item.id}`}
               className="d-flex justify-content-center align-items-center"
             >
               <div>{<SwiperCard cardData={item} />}</div>

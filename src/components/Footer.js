@@ -22,7 +22,10 @@ export default function Footer() {
   const locale = useLocale();
 
   const language =
-    window.localStorage.getItem("lng") === "ar" ? "arabic" : "english";
+    typeof window !== "undefined" && localStorage.getItem("lng") === "ar"
+      ? "arabic"
+      : "english";
+
   useLayoutEffect(() => {
     fetch("https://moneyservices.store/back/public/api/contact-us")
       .then((res) => res.json())
@@ -66,7 +69,7 @@ export default function Footer() {
                 <div
                   style={{ margin: "10px 10px" }}
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(info?.description1),
+                    __html: info?.description1,
                   }}
                 ></div>
               </div>
@@ -78,7 +81,7 @@ export default function Footer() {
                 <div
                   style={{ margin: "10px -5px" }}
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(info?.description2),
+                    __html: info?.description2,
                   }}
                 ></div>
               </div>
@@ -90,7 +93,7 @@ export default function Footer() {
                 <div
                   style={{ margin: "0px 0px" }}
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(info?.description3),
+                    __html: info?.description3,
                   }}
                 ></div>
               </div>
@@ -98,13 +101,13 @@ export default function Footer() {
             <div className="col-md-2">
               <div className="box mt-4">
                 <h4>{t("footer_info_head")}</h4>
-                <p
+                <div
                   style={{ margin: "0px 0px" }}
                   className="folowUS"
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(info?.description4),
+                    __html: info?.description4,
                   }}
-                ></p>
+                ></div>
                 <div className="footer_links">
                   <a href={info?.facebook} target="_blank" className="facebook">
                     <FaFacebookF />
@@ -132,7 +135,7 @@ export default function Footer() {
                 <div
                   style={{ margin: "0px 0px" }}
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(info?.description5),
+                    __html: info?.description5,
                   }}
                 ></div>
               </div>

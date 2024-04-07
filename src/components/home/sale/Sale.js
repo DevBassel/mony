@@ -7,7 +7,10 @@ export default function Sale({ data }) {
         <div className="row">
           {data?.map((el) => {
             return (
-              <div className="col-lg-4 cpl-md-6 col-sm-12" key={el?.id}>
+              <div
+                className="col-lg-4 cpl-md-6 col-sm-12"
+                key={`Sale____Key__${el?.id}`}
+              >
                 <div className="box mt-4">
                   <a href={`${el?.link}`}>
                     <CustomSale

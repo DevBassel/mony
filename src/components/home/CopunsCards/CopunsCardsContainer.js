@@ -1,5 +1,5 @@
 import CopunCard from "./CopunCard";
-import "../Style/copun-container.scss";
+import "@/src/Style/copun-container.scss";
 import { getLocale } from "next-intl/server";
 
 async function getData() {
@@ -21,7 +21,7 @@ async function CopunsCardsContainer() {
   return (
     <div className="card-container">
       {data?.products.map((item) => (
-        <div key={item.id}>
+        <div key={`product_${item.id}`}>
           <CopunCard cardData={item} />
         </div>
       ))}

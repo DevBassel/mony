@@ -1,7 +1,7 @@
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "../utils/navigation";
 
 function RootPage() {
-  redirect("/en");
+  redirect("/ar");
 }
 
 export default RootPage;

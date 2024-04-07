@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import "../Style/popular_card.scss";
+import "@/src/Style/popular_card.scss";
 import { Line } from "rc-progress";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "../utils/navigation";
+import { Link } from "@/src/utils/navigation";
 
 function PopularCard({ cardData }) {
   //  console.log(cardData);
@@ -33,6 +34,7 @@ function PopularCard({ cardData }) {
 
       return () => clearInterval(timerId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calculateRemainingTime]);
 
   // console.log(remainingTime);
@@ -48,7 +50,7 @@ function PopularCard({ cardData }) {
     <Link href={`/contest-details/${cardData?.id}/${cardData.slug}`}>
       <div className="pop-card-container">
         <div className="cardTop">
-          <img className="cardImg" src={cardData?.photo} />
+          <img className="cardImg" alt="" src={cardData?.photo} />
         </div>
         <div className="cardBottom">
           <p id="win-opo">{t("get_the_opp")}</p>

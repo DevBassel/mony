@@ -3,13 +3,13 @@
 import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "../Style/SlideInfo.scss";
-import "../Style/HomeSlide.css";
-import "../Style/products.css";
+import "@/src/Style/SlideInfo.scss";
+import "@/src/Style/HomeSlide.css";
+import "@/src/Style/products.css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { Link } from "../utils/navigation";
+import { Link } from "../../../utils/navigation";
 
 function HomeSlide({ data, sl }) {
   return (
@@ -25,7 +25,7 @@ function HomeSlide({ data, sl }) {
           >
             {data?.map((el) => {
               return (
-                <SwiperSlide key={el.id} className="slide-info">
+                <SwiperSlide key={`Slide_${el.id}`} className="slide-info">
                   <div className="row slide-x01 ">
                     <div className="col-lg-6 col-md-12 slide-x02 d-flex justify-content-lg-end justify-content-center maxw-lg-40">
                       <div className="text mx-5 ">

@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/prop-types */
 import { useTranslations } from "next-intl";
-import "../Style/swiperWinners.scss";
-import Image from "next/image";
+import "@/src/Style/swiperWinners.scss";
 
 function SwiperWinnerCard({ cardData }) {
   const copunCode = cardData?.user_code.substring(6);

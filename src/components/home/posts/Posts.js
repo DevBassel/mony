@@ -1,17 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useLayoutEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import "../Style/Posts.css";
+import "@/src/Style/Posts.css";
 import axios from "axios";
-import { Link } from "../utils/navigation";
 import { useTranslations } from "next-intl";
+import { Link } from "@/src/utils/navigation";
 
 export default function Posts() {
   const t = useTranslations();
   const [data, setBlog] = useState([]);
   const language =
-    window.localStorage.getItem("lng") === "ar" ? "arabic" : "english";
+    typeof window !== "undefined" && window.localStorage.getItem("lng") === "ar"
+      ? "arabic"
+      : "english";
 
   useLayoutEffect(() => {
     axios
@@ -50,8 +53,11 @@ export default function Posts() {
           {data?.posts?.map((el) => {
             return (
               <>
-                <div className="swiper-button-next" key={el}></div>
-                <SwiperSlide className="content d-flex mt-2" key={el?.id}>
+                <div
+                  className="swiper-button-next"
+                  key={`Post_EL_KKKey${el?.id}`}
+                ></div>
+                <SwiperSlide className="content d-flex mt-2">
                   <Link href={`/blog/post/${el.slug}`}>
                     <div className="post">
                       <div className="img">

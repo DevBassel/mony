@@ -1,9 +1,9 @@
 "use client";
 import { useDispatch } from "react-redux";
-import { searchProduct } from "../Redux/Reducers/ProductsSearch";
+import { searchProduct } from "@/src/Redux/Reducers/ProductsSearch";
 import { useFormik } from "formik";
 import { useTranslations } from "next-intl";
-import { useRouter } from "../utils/navigation";
+import { useRouter } from "@/src/utils/navigation";
 
 export default function HomeSearch() {
   const t = useTranslations();

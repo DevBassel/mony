@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useTranslations } from "next-intl";
-import "../Style/swiperContainer.scss";
+import "@/src/Style/swiperContainer.scss";
 
 function SwiperCard({ cardData }) {
   const t = useTranslations();
@@ -20,7 +21,7 @@ function SwiperCard({ cardData }) {
   return (
     <div className="swip-card-container">
       <div className="cardTop">
-        <img className="cardImg" src={cardData?.photo} />
+        <img className="cardImg" alt="" src={cardData?.photo} />
       </div>
       <div className="cardBottom">
         <p id="card-title">{cardData?.title}</p>

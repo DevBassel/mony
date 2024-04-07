@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-import { HomeApi } from "../Redux/Reducers/Home";
+import { HomeApi } from "@/src/Redux/Reducers/Home";
 import { Line } from "rc-progress";
-import { getCopons } from "../Redux/Reducers/Products";
+import { getCopons } from "@/src/Redux/Reducers/Products";
 import { FaEye } from "react-icons/fa6";
 import StarsRating from "react-star-rate";
 import { useTranslations } from "next-intl";
-import { useRouter } from "../utils/navigation";
+import { useRouter } from "@/src/utils/navigation";
 
 export default function LatestProducts() {
   const dispatch = useDispatch();
@@ -24,8 +24,9 @@ export default function LatestProducts() {
 
   const [newProducts, setNewProducts] = useState();
   const language =
-    window.localStorage.getItem("lng") === "ar" ? "arabic" : "english";
-  const lang = localStorage.getItem("lng");
+    typeof window !== "undefined" && window.localStorage.getItem("lng") === "ar"
+      ? "arabic"
+      : "english";
   useEffect(() => {
     fetch(`https://moneyservices.store/back/public/api/home?locale=${language}`)
       .then((response) => response.json())
@@ -69,13 +70,15 @@ export default function LatestProducts() {
         >
           {newProducts?.map((el) => {
             return (
-              <SwiperSlide className="content px-6" key={el.id}>
+              <SwiperSlide className="content px-6" key={`Last_${el.id}_Slide`}>
                 <div className="product">
                   <div className="product_img">
                     <img src={el?.photo?.split(",")[0]} alt="" />
                     <div className="product_imgs">
                       {el.photo?.split(",")?.map((el, i) => {
-                        return <img key={i} src={el} alt="" />;
+                        return (
+                          <img key={`Product_${i}_Image`} src={el} alt="" />
+                        );
                       })}
                     </div>
                   </div>
@@ -129,7 +132,9 @@ export default function LatestProducts() {
                     <img src={el?.photo?.split(",")[0]} alt="" />
                     <div className="product_imgs">
                       {el.photo?.split(",")?.map((el, i) => {
-                        return <img key={i} src={el} alt="" />;
+                        return (
+                          <img key={`Slide_Product_${i}`} src={el} alt="" />
+                        );
                       })}
                     </div>
                   </div>

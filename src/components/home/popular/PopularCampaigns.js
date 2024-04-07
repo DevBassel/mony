@@ -1,7 +1,7 @@
-import "../Style/popularCampigns.scss";
-import PopularCard from "./PopularCard";
-import { Link } from "../utils/navigation";
+import "@/src/Style/popularCampigns.scss";
 import { getLocale, getTranslations } from "next-intl/server";
+import PopularCard from "./PopularCard";
+import { Link } from "@/src/utils/navigation";
 
 async function getData() {
   const locale = await getLocale();
@@ -29,7 +29,7 @@ async function PopularCampaigns({ comingFrom }) {
           <div className="row mt-6">
             {data?.products.map((item) => (
               <div
-                key={item.id}
+                key={`Populat_key__${item.id}`}
                 className="d-flex justify-content-center align-items-center col-xl-4 col-lg-4 col col-md-6 col-sm-12 col-xs-12  mb-4"
               >
                 <PopularCard cardData={item} />

@@ -1,4 +1,4 @@
-import HomeSlide from "@/src/components/HomeSlide";
+import HomeSlide from "@/src/components/home/slider/HomeSlide";
 import { getLocale, getTranslations } from "next-intl/server";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,18 +12,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import Sale from "@/src/components/Sale";
-import PopularCampaigns from "@/src/components/PopularCampaigns";
-import CopunsCardsContainer from "@/src/components/CopunsCardsContainer";
-import SwiperCard from "@/src/components/SwiperCard";
-import SwiperCardsContainer from "@/src/components/SwiperCardsContainer";
-import NewProducts from "@/src/components/NewProducts";
-import SwiperWinners from "@/src/components/SwiperWinners";
-import ProductsBuys from "@/src/components/ProductsBuys";
-import Services from "@/src/components/Services";
-import LatestProducts from "@/src/components/LatestProducts";
-import Posts from "@/src/components/Posts";
-import HomeSearch from "@/src/components/HomeSearch";
+import Sale from "@/src/components/home/sale/Sale";
+import PopularCampaigns from "@/src/components/home/popular/PopularCampaigns";
+import CopunsCardsContainer from "@/src/components/home/CopunsCards/CopunsCardsContainer";
+import SwiperCardsContainer from "@/src/components/home/SwiperCards/SwiperCardsContainer";
+import NewProducts from "@/src/components/home/newProduct/NewProducts";
+import SwiperWinners from "@/src/components/home/SwiperWinners/SwiperWinners";
+import ProductsBuys from "@/src/components/home/ProductsBuys/ProductsBuys";
+import Services from "@/src/components/home/Services/Services";
+import LatestProducts from "@/src/components/home/LatestProducts/LatestProducts";
+import Posts from "@/src/components/home/posts/Posts";
+import HomeSearch from "@/src/components/home/HomeSearch";
 
 async function getData() {
   const locale = await getLocale();
@@ -47,20 +46,25 @@ export default async function Home() {
   return (
     <main>
       <HomeSlide data={data.banners} sl={t("slider_link")} />
+
       <Sale data={data?.under_slider} />
+
       <PopularCampaigns />
       <CopunsCardsContainer />
+
       <SwiperCardsContainer />
 
       <div style={{ margin: "100px 0" }}>
         <NewProducts data={data?.Latest_additions} />
       </div>
+
       <SwiperWinners />
 
       <ProductsBuys
         dataInfo={data?.featured_products}
         cate={data?.categories}
       />
+
       <Services data={data?.icon} />
 
       <LatestProducts data={data?.new_products} />
