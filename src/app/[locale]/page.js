@@ -15,6 +15,15 @@ import "swiper/css/autoplay";
 import Sale from "@/src/components/Sale";
 import PopularCampaigns from "@/src/components/PopularCampaigns";
 import CopunsCardsContainer from "@/src/components/CopunsCardsContainer";
+import SwiperCard from "@/src/components/SwiperCard";
+import SwiperCardsContainer from "@/src/components/SwiperCardsContainer";
+import NewProducts from "@/src/components/NewProducts";
+import SwiperWinners from "@/src/components/SwiperWinners";
+import ProductsBuys from "@/src/components/ProductsBuys";
+import Services from "@/src/components/Services";
+import LatestProducts from "@/src/components/LatestProducts";
+import Posts from "@/src/components/Posts";
+import HomeSearch from "@/src/components/HomeSearch";
 
 async function getData() {
   const locale = await getLocale();
@@ -41,6 +50,22 @@ export default async function Home() {
       <Sale data={data?.under_slider} />
       <PopularCampaigns />
       <CopunsCardsContainer />
+      <SwiperCardsContainer />
+
+      <div style={{ margin: "100px 0" }}>
+        <NewProducts data={data?.Latest_additions} />
+      </div>
+      <SwiperWinners />
+
+      <ProductsBuys
+        dataInfo={data?.featured_products}
+        cate={data?.categories}
+      />
+      <Services data={data?.icon} />
+
+      <LatestProducts data={data?.new_products} />
+      <Posts data={data?.posts} />
+      <HomeSearch />
     </main>
   );
 }

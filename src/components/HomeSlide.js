@@ -1,17 +1,14 @@
 "use client";
 import React from "react";
-import "../Style/SlideInfo.scss";
-import "../Style/HomeSlide.css";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-import "../Style/Home.css";
+import "../Style/SlideInfo.scss";
+import "../Style/HomeSlide.css";
 import "../Style/products.css";
+import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Link } from "../utils/navigation";
-import { useTranslations } from "next-intl";
 
 function HomeSlide({ data, sl }) {
   return (
@@ -20,10 +17,9 @@ function HomeSlide({ data, sl }) {
         <div className="slider">
           <Swiper
             modules={[Pagination, Navigation]}
-            spaceBetween={40}
             slidesPerView={1}
             loop={true}
-            navigation
+            navigation={true}
             pagination={{ clickable: true }}
           >
             {data?.map((el) => {

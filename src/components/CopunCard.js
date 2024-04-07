@@ -20,7 +20,7 @@ function CopunCard({ cardData, sender }) {
   const [remainingTime, setRemainingTime] = useState(calculateRemainingTime());
   function calculateRemainingTime() {
     const timeRemaining = Math.max(endDateTime - currentTime, 0);
-    console.log(timeRemaining);
+    // console.log(timeRemaining);
     const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
@@ -35,7 +35,7 @@ function CopunCard({ cardData, sender }) {
     // Store the coupons in the ref
     couponsRef.current = coupons;
   }, []);
-  console.log("localCop", couponsRef?.current?.userID);
+  // console.log("localCop", couponsRef?.current?.userID);
 
   useEffect(() => {
     if (cardData?.end_date) {
@@ -276,6 +276,7 @@ function CopunCard({ cardData, sender }) {
             <button
               style={{ outline: "0" }}
               id="cart-link"
+              className="mx-2"
               onClick={() => handleOpenModal(cardData, timePercentage)}
             >
               {t("subsc_now")}

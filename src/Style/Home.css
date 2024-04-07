@@ -1,3 +1,4 @@
+
 .sale .row {
   margin-top: -90px;
 }
@@ -325,7 +326,7 @@
 
 
 .new-product .img .bg_img {
-  background-image: url(/src/images/mask.png);
+  background-image: url(/assets/images/mask.png);
   background-size: cover;
   height: 100%;
   position: absolute;
