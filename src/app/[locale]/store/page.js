@@ -1,5 +1,3 @@
-"use clinet"
-
 import "../Style/Store.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { getCopons, getProducts } from "../Redux/Reducers/Products";
@@ -13,7 +11,9 @@ import Paginate from "../Components/Pagination";
 import { Helmet } from "react-helmet";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import image from "../images/phone.png";
 import HomeSearch from "../Components/HomeSearch";
+import { Link } from "react-router-dom";
 import { getCategories } from "../Redux/Reducers/categories";
 import { filterProductByPrice, Filter } from "../Redux/Reducers/Products";
 import ReactSlider from "react-slider";
