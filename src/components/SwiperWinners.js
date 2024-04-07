@@ -26,54 +26,6 @@ function SwiperWinners() {
     soldOut();
   }, [language]);
 
-  const wisnners = [
-    {
-      id: 1,
-      image:
-        "https://mobgadgets.com/assets/images/products/apple-iphone-15-pro-max-photo.webp",
-      winnerName: "Z II KA",
-      reward: "ايفون 15 برو ماكس",
-      copunNum: "zz- 1554236",
-      announceDate: "30/1/2024",
-    },
-    {
-      id: 2,
-      image:
-        "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTlAYm5GYCimc1AAcEhpVr1whdHNrlVky0yfBFqEJ-9aEfxrhLB",
-      winnerName: "Z II KA",
-      reward: "جنيه ذهب",
-      copunNum: "zz- 1554236",
-      announceDate: "30/1/2024",
-    },
-    {
-      id: 3,
-      image:
-        "https://mobgadgets.com/assets/images/products/apple-iphone-15-pro-max-photo.webp",
-      winnerName: "Z II KA",
-      reward: "ايفون 15 برو ماكس",
-      copunNum: "zz- 1554236",
-      announceDate: "30/1/2024",
-    },
-    {
-      id: 4,
-      image:
-        "https://mobgadgets.com/assets/images/products/apple-iphone-15-pro-max-photo.webp",
-      winnerName: "Z II KA",
-      reward: "ايفون 15 برو ماكس",
-      copunNum: "zz- 1554236",
-      announceDate: "30/1/2024",
-    },
-    {
-      id: 5,
-      image:
-        "https://mobgadgets.com/assets/images/products/apple-iphone-15-pro-max-photo.webp",
-      winnerName: "Z II KA",
-      reward: "ايفون 15 برو ماكس",
-      copunNum: "zz- 1554236",
-      announceDate: "30/1/2024",
-    },
-  ];
-
   return (
     <div
       className="container swiper-container"

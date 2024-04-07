@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import "../Style/Header.css";
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -69,6 +70,7 @@ function Header() {
 
   useEffect(() => {
     fetchUserCopuns();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useLayoutEffect(() => {
@@ -83,6 +85,7 @@ function Header() {
       .then((data) => {
         setInfo(data?.profile);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -513,10 +516,10 @@ function Header() {
                 <img
                   src={CartImg}
                   style={{
-                    margin:
-                      i18n.language === "en" ? "0 2px 0 6px" : "0 6px 0 2px",
+                    margin: locale === "en" ? "0 2px 0 6px" : "0 6px 0 2px",
                   }}
                   className="ms-1"
+                  alt=""
                 />
               </Link>
 

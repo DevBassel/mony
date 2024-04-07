@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 import { Line } from "rc-progress";
 import Modal from "react-modal";
 import { useState } from "react";
@@ -18,6 +19,7 @@ function CopunCard({ cardData, sender }) {
 
   //const endDateTime = new Date("2024-01-29 08:46:00");
   const [remainingTime, setRemainingTime] = useState(calculateRemainingTime());
+
   function calculateRemainingTime() {
     const timeRemaining = Math.max(endDateTime - currentTime, 0);
     // console.log(timeRemaining);
@@ -45,6 +47,7 @@ function CopunCard({ cardData, sender }) {
 
       return () => clearInterval(timerId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calculateRemainingTime]);
 
   // console.log(remainingTime);
@@ -255,7 +258,7 @@ function CopunCard({ cardData, sender }) {
 
       <div className="card-inside">
         <div className="inside-right">
-          <img src={cardData?.photo} className="cop-image" />
+          <img src={cardData?.photo} className="cop-image " alt="" />
         </div>
         <div className="inside-left">
           <h2 id="cardHead">{t("cardHead")}</h2>

@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import "../Style/NewProducts.css";
 import { useTranslations } from "next-intl";
 import { Link } from "../utils/navigation";
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export default async function NewProducts({ data }) {
   const t = await getTranslations();

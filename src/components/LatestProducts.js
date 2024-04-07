@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState } from "react";
@@ -5,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import { HomeApi } from "../Redux/Reducers/Home";
 import { Line } from "rc-progress";
-import { useCart } from "react-use-cart";
 import { getCopons } from "../Redux/Reducers/Products";
 import { FaEye } from "react-icons/fa6";
 import StarsRating from "react-star-rate";
@@ -17,6 +17,7 @@ export default function LatestProducts() {
   useLayoutEffect(() => {
     dispatch(HomeApi());
     dispatch(getCopons());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const t = useTranslations();
   const router = useRouter();

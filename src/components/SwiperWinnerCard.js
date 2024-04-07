@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/prop-types */
 import { useTranslations } from "next-intl";
 import "../Style/swiperWinners.scss";
+import Image from "next/image";
 
 function SwiperWinnerCard({ cardData }) {
   const copunCode = cardData?.user_code.substring(6);
@@ -20,9 +22,8 @@ function SwiperWinnerCard({ cardData }) {
 
   return (
     <div className="swip-card-container">
-      .
       <div className="cardTop">
-        <img className="cardImg" src={cardData?.photo} />
+        <img className="cardImg" alt="" src={cardData?.photo} />
       </div>
       <div className="cardBottom">
         <h3 className="congrats">{t("congrats")}</h3>
