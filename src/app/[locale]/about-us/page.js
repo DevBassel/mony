@@ -43,10 +43,6 @@ export default function AboutUs() {
     <>
       {loader1 && loader2 && (
         <>
-          {/* <Helmet>
-            <title>{t("header_link_about")}</title>
-            <meta name="description" content={t("about_us4")} />
-          </Helmet> */}
           <div className="container my-5">
             <div className="row">
               <div className="col-md-8 ">

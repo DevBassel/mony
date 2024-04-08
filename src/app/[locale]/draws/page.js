@@ -1,5 +1,5 @@
 import "@/src/Style/Drawings.scss";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import PopularCampaigns from "@/src/components/draws/PopularCampaigns";
 import CopunsCardsContainer from "@/src/components/draws/CopunsCardsContainer";
 
@@ -16,7 +16,7 @@ async function getData() {
   const language = locale === "ar" ? "arabic" : "english";
   console.log({ language, locale });
   const res = await fetch(
-    `https://moneyservices.store/back/public/api/home?locale=${language}`
+    `https://moneyservices.store/back/public/api/popular-competitions?locale=${language}`
   );
 
   if (!res.ok) {
@@ -27,9 +27,10 @@ async function getData() {
 }
 
 async function Drawings() {
+  const data = await getData();
   return (
     <div className="Drawings-container">
-      <PopularCampaigns comingFrom="Draws" />
+      <PopularCampaigns comingFrom="Draws" data={data} />
       <CopunsCardsContainer />
     </div>
   );

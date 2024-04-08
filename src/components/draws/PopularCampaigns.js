@@ -1,26 +1,10 @@
 import "@/src/Style/popularCampigns.scss";
 import PopularCard from "./PopularCard";
 import { Link } from "@/src/utils/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-async function getData() {
-  const locale = await getLocale();
-  const language = locale === "ar" ? "arabic" : "english";
-  console.log({ language, locale });
-  const res = await fetch(
-    `https://moneyservices.store/back/public/api/popular-competitions?locale=${language}`
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
-async function PopularCampaigns({ comingFrom }) {
-  const data = await getData();
-  const t = await getTranslations();
+function PopularCampaigns({ comingFrom, data }) {
+  const t = useTranslations();
 
   return (
     <div className="container campaigns-container">

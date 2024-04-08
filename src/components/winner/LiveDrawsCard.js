@@ -1,12 +1,13 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/prop-types */
 import "@/src/Style/LiveDrawsCard.scss";
-import { useTranslations } from "next-intl";
-import { getLocale } from "next-intl/server";
+import { useLocale, useTranslations } from "next-intl";
 
-async function LiveDrawsCard({ cardData }) {
+function LiveDrawsCard({ cardData }) {
   const t = useTranslations();
-  const locale = await getLocale();
+  const locale = useLocale();
   return (
     <a
       href={cardData?.link}

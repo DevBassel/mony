@@ -32,10 +32,6 @@ async function getData() {
     `https://moneyservices.store/back/public/api/home?locale=${language}`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
   return res.json();
 }
 

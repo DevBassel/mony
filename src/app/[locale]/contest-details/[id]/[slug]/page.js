@@ -21,12 +21,8 @@ async function fetchPopularCompetitions(slug) {
   const language = locale === "ar" ? "arabic" : "english";
   console.log({ data: locale });
   const res = await fetch(
-    `https://moneyservices.store/back/public/api/competitions-detail/${slug}?locale=${"arabic"}`
+    `https://moneyservices.store/back/public/api/competitions-detail/${slug}?locale=${language}`
   );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
 
   return res.json();
 }
