@@ -1,3 +1,5 @@
+
+
 import "../Style/Store.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { getCopons, getProducts } from "../Redux/Reducers/Products";
