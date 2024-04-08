@@ -3,7 +3,6 @@ import "@/src/Style/contestDetails.css";
 import SwiperWinners from "@/src/components/home/SwiperWinners/SwiperWinners";
 import WinnerSlider from "@/src/components/winner/winnerSlider";
 import LiveDrawsCard from "@/src/components/winner/LiveDrawsCard";
-import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 
 export const metadata = async () => {
@@ -32,7 +31,6 @@ export default async function Winners() {
   const t = await getTranslations();
 
   const liveDraws = await getLiveDraws();
-  console.log(liveDraws.Direct_lives);
 
   return (
     <div className="Winners-Container">
