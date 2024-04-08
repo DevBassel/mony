@@ -4,18 +4,16 @@ import "@/src/Style/about.css";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function AboutUs() {
   const [info, setInfo] = useState({});
   const [use, setUse] = useState({});
+  const locale = useLocale();
   const [loader1, setLoader1] = useState(false);
   const [loader2, setLoader2] = useState(false);
   const t = useTranslations();
-  const language =
-    typeof window !== "undefined" && window.localStorage.getItem("lng") === "ar"
-      ? "arabic"
-      : "english";
+  const language = locale === "ar" ? "arabic" : "english";
 
   const fetchData = async (url, setData, setLoader) => {
     try {
