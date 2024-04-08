@@ -110,7 +110,7 @@ export default function LatestProducts() {
                   <div
                     className="watch_details text-center"
                     onClick={() => {
-                      router, push(`/store/product/${el.slug}`);
+                      router.push(`/store/product/${el.slug}`);
                     }}
                   >
                     {t("latest_products_link")}

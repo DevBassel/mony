@@ -1,7 +1,3 @@
-import { redirect } from "../utils/navigation";
-
-function RootPage() {
-  redirect("/ar");
-}
+function RootPage() {}
 
 export default RootPage;
