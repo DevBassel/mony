@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
 import "@/src/Style/about.css";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
@@ -11,13 +11,15 @@ export default function AboutUs() {
   const [use, setUse] = useState({});
   const [loader1, setLoader1] = useState(false);
   const [loader2, setLoader2] = useState(false);
-  const  t = useTranslations();
+  const t = useTranslations();
   const language =
-  window.localStorage.getItem("lng") === "ar" ? "arabic" : "english";
+    typeof window !== "undefined" && window.localStorage.getItem("lng") === "ar"
+      ? "arabic"
+      : "english";
 
   const fetchData = async (url, setData, setLoader) => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 20)); // تأخير لمدة 1 ثانية (يمكنك تعديلها)
+      await new Promise((resolve) => setTimeout(resolve, 20)); // تأخير لمدة 1 ثانية (يمكنك تعديلها)
       const response = await axios.get(url);
       setData(response.data);
       setLoader(true);
@@ -79,7 +81,7 @@ export default function AboutUs() {
                   <div className="card border border-dark rounded ro2 ">
                     <img
                       src={el?.photo}
-                      style={{'padding':'30px'}}
+                      style={{ padding: "30px" }}
                       className="card-img-top"
                       alt="..."
                     />
