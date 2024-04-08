@@ -3,8 +3,6 @@
 import React from "react";
 import axios from "axios";
 import "../Style/Footer.css";
-import DOMPurify from "dompurify";
-
 import {
   FaFacebookF,
   FaTwitter,
