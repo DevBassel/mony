@@ -7,8 +7,10 @@ import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import SideBarUser from "./SideBarUser";
 import { useTranslations } from "next-intl";
+import useIsAuthUser from "../hooks/useIsAuth";
 
 export default function Account() {
+  const isAuth = useIsAuthUser();
   const t = useTranslations();
   const [imageFile, setImageFile] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -123,115 +125,117 @@ export default function Account() {
   });
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          <SideBarUser />
+    isAuth && (
+      <>
+        <div className="container">
+          <div className="row">
+            <SideBarUser />
 
-          <div className="col-md-6 ">
-            <div className="row ">
-              <div className="col-md-10 m-5 rounded-top bg-body-tertiary p-4">
-                <h1 className="fw-bold">{t("AccountInformation")}</h1>
-                <form action="" onSubmit={formikOb.handleSubmit}>
-                  <div className="input_group mb-3">
-                    <label htmlFor="name">{t("setting_form_name")}</label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      onChange={formikOb.handleChange}
-                      value={
-                        formikOb.values.name || user?.user?.name
-                          ? user?.user?.name
-                          : user?.name
-                      }
-                      className="form-control fw-semibold text-right"
-                    />
-                  </div>
-
-                  <div className="input_group mb-3">
-                    <label htmlFor="image">{t("setting_form_img")}</label>
-                    <input
-                      type="file"
-                      name="image"
-                      id="image"
-                      onChange={(event) => {
-                        formikOb.setFieldValue(
-                          "image",
-                          event.currentTarget.files[0]
-                        );
-                        setImageFile(event.currentTarget.files[0]);
-                      }}
-                      className="form-control fw-semibold text-right"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-warning w-25 buttonup text-center shadow-lg text-white"
-                  >
-                    <span className="text-center">{t("btn-update")}</span>
-                  </button>
-                </form>
-                <ToastContainer />
-              </div>
+            <div className="col-md-6 ">
               <div className="row ">
-                <div className="col-md-10 m-5 rounded-top bg-body-tertiary p-4 ">
-                  <h1 className=" fw-bold">{t("InformationPassWord")}</h1>
-                  <form action="" onSubmit={formikObj.handleSubmit}>
-                    <div class="mb-3">
+                <div className="col-md-10 m-5 rounded-top bg-body-tertiary p-4">
+                  <h1 className="fw-bold">{t("AccountInformation")}</h1>
+                  <form action="" onSubmit={formikOb.handleSubmit}>
+                    <div className="input_group mb-3">
+                      <label htmlFor="name">{t("setting_form_name")}</label>
                       <input
-                        class="form-control fw-semibold text-right"
-                        type="password"
-                        placeholder={t("setting_form_current")}
-                        id="current"
-                        onChange={formikObj.handleChange}
-                        name="current_password "
+                        type="text"
+                        name="name"
+                        id="name"
+                        onChange={formikOb.handleChange}
+                        value={
+                          formikOb.values.name || user?.user?.name
+                            ? user?.user?.name
+                            : user?.name
+                        }
+                        className="form-control fw-semibold text-right"
                       />
                     </div>
 
-                    <div class="mb-3">
+                    <div className="input_group mb-3">
+                      <label htmlFor="image">{t("setting_form_img")}</label>
                       <input
-                        type="password"
-                        class="form-control fw-semibold text-right"
-                        placeholder={t("setting_form_new")}
-                        id="new_password"
-                        onChange={formikObj.handleChange}
-                        name="new_password"
+                        type="file"
+                        name="image"
+                        id="image"
+                        onChange={(event) => {
+                          formikOb.setFieldValue(
+                            "image",
+                            event.currentTarget.files[0]
+                          );
+                          setImageFile(event.currentTarget.files[0]);
+                        }}
+                        className="form-control fw-semibold text-right"
                       />
-                    </div>
-
-                    <div class="mb-3">
-                      <input
-                        class="form-control fw-semibold text-right"
-                        type="password"
-                        id="new_password_confirmation"
-                        onChange={formikObj.handleChange}
-                        name="new_password_confirmation"
-                        placeholder={t("setting_form_confirm")}
-                      />
-                      {formikObj.errors.new_password_confirmation && (
-                        <div className="error_message">
-                          {formikObj.errors.new_password_confirmation}
-                        </div>
-                      )}
                     </div>
 
                     <button
                       type="submit"
-                      className="btn btn-warning w-25 buttonUpdata   shadow-lg text-white"
+                      className="btn btn-warning w-25 buttonup text-center shadow-lg text-white"
                     >
-                      <span>{t("btn-update")}</span>
+                      <span className="text-center">{t("btn-update")}</span>
                     </button>
                   </form>
+                  <ToastContainer />
+                </div>
+                <div className="row ">
+                  <div className="col-md-10 m-5 rounded-top bg-body-tertiary p-4 ">
+                    <h1 className=" fw-bold">{t("InformationPassWord")}</h1>
+                    <form action="" onSubmit={formikObj.handleSubmit}>
+                      <div class="mb-3">
+                        <input
+                          class="form-control fw-semibold text-right"
+                          type="password"
+                          placeholder={t("setting_form_current")}
+                          id="current"
+                          onChange={formikObj.handleChange}
+                          name="current_password "
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <input
+                          type="password"
+                          class="form-control fw-semibold text-right"
+                          placeholder={t("setting_form_new")}
+                          id="new_password"
+                          onChange={formikObj.handleChange}
+                          name="new_password"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <input
+                          class="form-control fw-semibold text-right"
+                          type="password"
+                          id="new_password_confirmation"
+                          onChange={formikObj.handleChange}
+                          name="new_password_confirmation"
+                          placeholder={t("setting_form_confirm")}
+                        />
+                        {formikObj.errors.new_password_confirmation && (
+                          <div className="error_message">
+                            {formikObj.errors.new_password_confirmation}
+                          </div>
+                        )}
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="btn btn-warning w-25 buttonUpdata   shadow-lg text-white"
+                      >
+                        <span>{t("btn-update")}</span>
+                      </button>
+                    </form>
+                  </div>
+                  <ToastContainer />
                 </div>
                 <ToastContainer />
               </div>
-              <ToastContainer />
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 }

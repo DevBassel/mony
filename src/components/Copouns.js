@@ -6,8 +6,10 @@ import axios from "axios";
 import "@/src/Style/copones.css";
 import { useTranslations } from "next-intl";
 import SideBarUser from "./SideBarUser";
+import useIsAuthUser from "../hooks/useIsAuth";
 
 export default function Copouns() {
+  const isAuth = useIsAuthUser();
   const t = useTranslations();
   const [active, setActive] = useState({});
   const [copons, setCopons] = useState({}); // Add this line
@@ -57,88 +59,90 @@ export default function Copouns() {
   }, []);
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          <SideBarUser />
+    isAuth && (
+      <>
+        <div className="container">
+          <div className="row">
+            <SideBarUser />
 
-          <div className="col-md-9 mb-5 mt-5">
-            <div className="row">
-              <h1 className="fw-bolder">{t("copounsActive")}</h1>
+            <div className="col-md-9 mb-5 mt-5">
+              <div className="row">
+                <h1 className="fw-bolder">{t("copounsActive")}</h1>
 
-              {active.length > 0 ? (
-                active.map((coupon) => (
-                  <div
-                    key={coupon.id}
-                    className="copones-content mt-5 text-center d-flex col-md-6"
-                  >
-                    <div className="item-1">
-                      <h2>{coupon.code}</h2>
-                      <p>{t("end-copones")}</p>
-                      <span>{coupon.end_date}</span>
+                {active.length > 0 ? (
+                  active.map((coupon) => (
+                    <div
+                      key={coupon.id}
+                      className="copones-content mt-5 text-center d-flex col-md-6"
+                    >
+                      <div className="item-1">
+                        <h2>{coupon.code}</h2>
+                        <p>{t("end-copones")}</p>
+                        <span>{coupon.end_date}</span>
+                      </div>
+                      <div className="line"></div>
+                      <div className="img-copones">
+                        <img
+                          className="rounded-3"
+                          src={coupon.product_photo}
+                          alt=""
+                        />
+                      </div>
                     </div>
-                    <div className="line"></div>
-                    <div className="img-copones">
-                      <img
-                        className="rounded-3"
-                        src={coupon.product_photo}
-                        alt=""
-                      />
-                    </div>
+                  ))
+                ) : (
+                  <div className="item mx-auto">
+                    {" "}
+                    <img
+                      className="w-50  "
+                      src={"/assets/images/data.svg"}
+                      alt="copons"
+                    />
+                    <p className="fw-bold m-3">{t("nocopounsActive")}</p>
                   </div>
-                ))
-              ) : (
-                <div className="item mx-auto">
-                  {" "}
-                  <img
-                    className="w-50  "
-                    src={"/assets/images/data.svg"}
-                    alt="copons"
-                  />
-                  <p className="fw-bold m-3">{t("nocopounsActive")}</p>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
 
-            {/* جزء عرض القسائم الغير فعّالة */}
+              {/* جزء عرض القسائم الغير فعّالة */}
 
-            <div className="row">
-              <h1 className="fw-bolder">{t("copounsnoActive")}</h1>
-              {copons.length > 0 ? (
-                copons.map((coupon) => (
-                  <div
-                    key={coupon.id}
-                    className="copones-content mt-5 text-center d-flex justify-content-around col-md-6"
-                  >
-                    <div className="item-1">
-                      <h2>{coupon.code}</h2>
-                      <p>{t("end-copones")}</p>
-                      <span>{coupon.end_date}</span>
+              <div className="row">
+                <h1 className="fw-bolder">{t("copounsnoActive")}</h1>
+                {copons.length > 0 ? (
+                  copons.map((coupon) => (
+                    <div
+                      key={coupon.id}
+                      className="copones-content mt-5 text-center d-flex justify-content-around col-md-6"
+                    >
+                      <div className="item-1">
+                        <h2>{coupon.code}</h2>
+                        <p>{t("end-copones")}</p>
+                        <span>{coupon.end_date}</span>
+                      </div>
+                      <div className="line"></div>
+                      <div className="img-copones">
+                        <img
+                          className="rounded-3"
+                          src={coupon.product_photo}
+                          alt=""
+                        />
+                      </div>
                     </div>
-                    <div className="line"></div>
-                    <div className="img-copones">
-                      <img
-                        className="rounded-3"
-                        src={coupon.product_photo}
-                        alt=""
-                      />
-                    </div>
+                  ))
+                ) : (
+                  <div className="item  mx-auto">
+                    <img
+                      src={"/assets/images/data.svg"}
+                      className="w-50  "
+                      alt=""
+                    />
+                    <p className="fw-bold m-3">{t("nocopounsnotActive")}</p>{" "}
                   </div>
-                ))
-              ) : (
-                <div className="item  mx-auto">
-                  <img
-                    src={"/assets/images/data.svg"}
-                    className="w-50  "
-                    alt=""
-                  />
-                  <p className="fw-bold m-3">{t("nocopounsnotActive")}</p>{" "}
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 }

@@ -10,10 +10,10 @@ import { toast } from "react-toastify";
 import { useLocale, useTranslations } from "next-intl";
 import ProductCard from "../home/ProductsBuys/ProductCard";
 import HomeSearch from "../home/HomeSearch";
-import IsAuthUser from "@/src/hooks/isAuth";
+import useIsAuthUser from "@/src/hooks/useIsAuth";
 
 export default function WishList() {
-  const isAuth = IsAuthUser();
+  const isAuth = useIsAuthUser();
 
   const { wishlistData, isLoading, isError } = useSelector(
     (state) => state.wishList

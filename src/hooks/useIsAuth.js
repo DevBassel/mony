@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "../utils/navigation";
 
-export default function IsAuthUser() {
+export default function useIsAuthUser() {
   const [isAuth, setIsAuth] = useState(false);
   const router = useRouter();
 

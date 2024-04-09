@@ -4,11 +4,11 @@ import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import { Link, useRouter } from "../utils/navigation";
 import { useTranslations } from "next-intl";
-import IsAuthUser from "../hooks/isAuth";
+import useIsAuthUser from "../hooks/useIsAuth";
 
 export default function ConfirmCode() {
   const router = useRouter();
-  const isAuth = IsAuthUser();
+  const isAuth = useIsAuthUser();
 
   const SendData = async (values) => {
     const { email, token } = values;
