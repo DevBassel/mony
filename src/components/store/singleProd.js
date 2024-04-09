@@ -132,11 +132,12 @@ export default function SingleProduct({ id }) {
   console.log({ colors });
   const [productData, setProductData] = useState();
 
-  function handleFavourite(data) {
-    dispatch(setWishList(data?.product_detail))
+  function handleAddToFav(data) {
+    console.log("dataaa", data);
+    dispatch(setWishList(data.product_detail))
       .then(() => {
         console.log("Successed");
-        setShowAddFav(false);
+        setShowAddFav((prev) => !prev);
       })
       .catch((error) => {
         console.error("Error Adding to fav", error);
@@ -401,7 +402,7 @@ export default function SingleProduct({ id }) {
                       <button
                         onClick={() => {
                           localStorage.getItem("user")
-                            ? handleFavourite(data)(true)
+                            ? handleAddToFav(data)
                             : router.push(`/login`);
                         }}
                         className="add_to_cart"
