@@ -7,6 +7,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import CustomSearch from "./CustomSearch";
 import { useContext } from "react";
 import { useCart } from "react-use-cart";
+import "bootstrap/dist/js/bootstrap.js";
 
 import axios from "axios";
 import { faUser, faHeart, faTicket } from "@fortawesome/free-solid-svg-icons";

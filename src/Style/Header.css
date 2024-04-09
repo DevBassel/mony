@@ -17,7 +17,9 @@
   z-index: 20 !important;
 }
 
-
+.dropdown-item{
+  color: #fff !important;
+}
 
 .header .operation {
   display: -webkit-box;

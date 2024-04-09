@@ -10,8 +10,11 @@ import { toast } from "react-toastify";
 import { useLocale, useTranslations } from "next-intl";
 import ProductCard from "../home/ProductsBuys/ProductCard";
 import HomeSearch from "../home/HomeSearch";
+import IsAuthUser from "@/src/hooks/isAuth";
 
 export default function WishList() {
+  const isAuth = IsAuthUser();
+
   const { wishlistData, isLoading, isError } = useSelector(
     (state) => state.wishList
   );
@@ -115,47 +118,49 @@ export default function WishList() {
   }, [isError]);
 
   return (
-    <div className="wish_list pt-4">
-      <div className="container wishList-container">
-        <h4 className="list_title">{t("wish_list_title")}</h4>
-        <div className="buy-products py-4">
-          <div className="container">
-            <div className="row mt-6">
-              {wishlistData?.length < 1 ? (
-                <div className="row">
-                  <div
-                    className="container pt-5"
-                    style={{ "text-align": "center" }}
-                  >
-                    <img
-                      style={{ width: "20%" }}
-                      src={"/assets/images/no_list.svg"}
-                      alt=""
-                    />
-                    <h4 className="text-capitalize pt-5">
-                      {t("wish_list_emty")}
-                    </h4>
+    isAuth && (
+      <div className="wish_list pt-4">
+        <div className="container wishList-container">
+          <h4 className="list_title">{t("wish_list_title")}</h4>
+          <div className="buy-products py-4">
+            <div className="container">
+              <div className="row mt-6">
+                {wishlistData?.length < 1 ? (
+                  <div className="row">
+                    <div
+                      className="container pt-5"
+                      style={{ "text-align": "center" }}
+                    >
+                      <img
+                        style={{ width: "20%" }}
+                        src={"/assets/images/no_list.svg"}
+                        alt=""
+                      />
+                      <h4 className="text-capitalize pt-5">
+                        {t("wish_list_emty")}
+                      </h4>
+                    </div>
                   </div>
-                </div>
-              ) : isError === "SERVER ERROR TRY AGAIN LATER..." ? (
-                <h4>خطأ من الخادم برجاء المحاولة مرة اخرى</h4>
-              ) : (
-                wishlistData?.map((el) => {
-                  return (
-                    <ProductCard
-                      el={el.product}
-                      key={el.product.id}
-                      copone={el.product.copone}
-                      fav="Favorite"
-                    />
-                  );
-                })
-              )}
+                ) : isError === "SERVER ERROR TRY AGAIN LATER..." ? (
+                  <h4>خطأ من الخادم برجاء المحاولة مرة اخرى</h4>
+                ) : (
+                  wishlistData?.map((el) => {
+                    return (
+                      <ProductCard
+                        el={el.product}
+                        key={el.product.id}
+                        copone={el.product.copone}
+                        fav="Favorite"
+                      />
+                    );
+                  })
+                )}
+              </div>
             </div>
           </div>
+          <HomeSearch />
         </div>
-        <HomeSearch />
       </div>
-    </div>
+    )
   );
 }
