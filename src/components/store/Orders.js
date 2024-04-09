@@ -25,8 +25,10 @@ export default function Orders() {
   const locale = useLocale();
   const user = JSON.parse(localStorage.getItem("user"));
   const [userOrders, setUserOrders] = useState([]);
+
   const [expandedOrders, setExpandedOrders] = useState({});
   const [loading, setLoading] = useState(true);
+
   const [error, setError] = useState(null);
   const [number, setInumber] = useState({});
   const [userDetailsOrders, setUserDetailsOrders] = useState([]);
