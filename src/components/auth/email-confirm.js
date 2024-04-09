@@ -3,9 +3,10 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import { Link, useRouter } from "../../utils/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function EmailConfirm() {
+  const locale = useLocale();
   const ConfirmEmail =
     typeof window !== "undefined" && localStorage.getItem("ConfirmEmail");
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function EmailConfirm() {
       // تخزين البريد الإلكتروني في localStorage
       localStorage.setItem("forgottenEmail", value.email);
 
-      i18n.language === "ar"
+      locale === "ar"
         ? toast.success("انتظر قليلا لأرسال الكود")
         : toast.success("Wait a little to send the code");
 
@@ -44,7 +45,7 @@ export default function EmailConfirm() {
 
   return (
     <div
-      className="my-5  bg-light  rounded-3 p-4"
+      className="my-5 bg-light  rounded-3 p-4"
       style={{ textAlign: "center" }}
     >
       <h2 className="mb-3">{t("email_confirm")}</h2>

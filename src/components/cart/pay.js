@@ -533,13 +533,7 @@ export default function Pay({ isModalOpened, setIsModalOpened }) {
                   )}
                 </label>
               </div>
-              <button
-                className="btn bg-warning w-100 mt-3"
-                type="submit"
-                onClick={() => {
-                  handleSubmit(formik.values);
-                }}
-              >
+              <button className="btn bg-warning w-100 mt-3" type="submit">
                 {t("cart_pay_submit")}
               </button>
             </form>
