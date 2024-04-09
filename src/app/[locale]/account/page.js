@@ -1,4 +1,4 @@
-import Account from "@/src/components/account";
+import Account from "@/src/components/user/account";
 import { getTranslations } from "next-intl/server";
 import React from "react";
 

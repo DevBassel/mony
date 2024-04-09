@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import SideBarUser from "./SideBarUser";
 import { useTranslations } from "next-intl";
-import useIsAuthUser from "../hooks/useIsAuth";
+import useIsAuthUser from "../../hooks/useIsAuth";
 
 export default function Account() {
   const isAuth = useIsAuthUser();

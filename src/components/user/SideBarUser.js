@@ -15,8 +15,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useTranslations } from "next-intl";
-import { tokenContext } from "../app/Context/tokenContext";
-import { Link, useRouter } from "../utils/navigation";
+import { tokenContext } from "../../app/Context/tokenContext";
+import { Link, useRouter } from "../../utils/navigation";
 
 export default function SideBarUser() {
   const user =

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "@/src/Style/copones.css";
 import { useTranslations } from "next-intl";
-import SideBarUser from "./SideBarUser";
+import SideBarUser from "./user/SideBarUser";
 import useIsAuthUser from "../hooks/useIsAuth";
 
 export default function Copouns() {

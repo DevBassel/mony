@@ -167,7 +167,7 @@
 }
 
 .post_detail .img img {
-  max-width: 50%;
+  max-width: 50% !important;
 }
 .post_detail .post_info {
   padding: 10px 0;
