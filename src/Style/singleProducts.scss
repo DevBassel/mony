@@ -485,9 +485,9 @@
   }
   
   #prod-det{
-    display: block;
+    display: block !important;
     margin: 10px 0 0 0 ;
-    background-color: #ffb61e;
+    background-color: #ffb61e !important;
     padding: 10px 0;
     color:white;
     border-radius: 0 0 10px 10px;

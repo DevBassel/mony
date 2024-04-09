@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import "../Style/Header.css";
+import "@/src/Style/Header.css";
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useLayoutEffect, useState } from "react";
@@ -22,7 +22,11 @@ function Header() {
   const router = useRouter();
   console.log(pathname);
   let ttt = useContext(tokenContext);
+  const [isClient, setIsClient] = useState(false);
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   function logOut() {
     localStorage.removeItem("token");
     ttt.setToken(null);
@@ -207,7 +211,7 @@ function Header() {
  */}
 
             <Link href={"/cart"} className="cart-item">
-              <span className="cart_total">{items?.length}</span>
+              {isClient && <span className="cart_total">{items?.length}</span>}
               {t("header_cart_item")}
               <img
                 src={CartImg}
