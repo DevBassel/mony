@@ -1,4 +1,4 @@
-import TokenForget from "@/src/components/TokenForget";
+import TokenForget from "@/src/components/auth/TokenForget";
 
 export const metadata = {
   title: "Account",

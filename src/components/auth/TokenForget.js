@@ -4,16 +4,14 @@ import "@/src/Style/account.css";
 import axios from "axios";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
-import { useLocale, useTranslations } from "next-intl";
-import { useRouter } from "../utils/navigation";
-export default function TokenCOnform() {
+import { useRouter } from "../../utils/navigation";
+import { useTranslations } from "next-intl";
+
+export default function TokenForget() {
   const router = useRouter();
   const t = useTranslations();
   const [isSubmittingToken, setIsSubmittingToken] = useState(false);
-  const email = localStorage.getItem("forgottenEmail");
-  const ConfirmName = localStorage.getItem("ConfirmName");
-  const ConfirmPassword = localStorage.getItem("ConfirmPassword");
-  const lang = useLocale();
+  const email = typeof window !== "undefined" && localStorage.getItem("fEmail");
 
   const formikObj = useFormik({
     initialValues: {
@@ -25,29 +23,23 @@ export default function TokenCOnform() {
       }
 
       setIsSubmittingToken(true);
-
       try {
-        const res = await axios.post(
-          `https://moneyservices.store/back/public/api/confirm-email?email=${email}&token=${values.new_password}`
+        const res = await axios.get(
+          `https://moneyservices.store/back/public/api/check-code?email=${email}&token=${values.new_password}`
         );
 
         if (res && res.status === 200) {
           toast.success(res.data.message);
-
-          router.push(`/login`);
+          router.push(`/change-password`);
         }
       } catch (err) {
-        toast.error(
-          err.response?.data?.message ===
-            "The email or confirmation number is incorrect" && lang === "ar"
-            ? "البريد الإلكتروني أو رقم التأكيد غير صحيح"
-            : err.response?.data?.message
-        );
+        toast.error(err.response?.data?.message || t("unknown_error"));
       }
 
       setIsSubmittingToken(false);
     },
   });
+
   return (
     <>
       <div className="container">

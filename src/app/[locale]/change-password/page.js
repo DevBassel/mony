@@ -1,4 +1,4 @@
-import ChangPassword from "@/src/components/changePassword";
+import ChangPassword from "@/src/components/auth/changePassword";
 
 export const metadata = {
   title: "Account",

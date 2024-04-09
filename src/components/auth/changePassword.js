@@ -6,7 +6,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import { useTranslations } from "next-intl";
-import { useRouter } from "../utils/navigation";
+import { useRouter } from "../../utils/navigation";
 
 export default function ChangPassword() {
   const t = useTranslations(); // استخدام useTranslation لتعيين المتغير t

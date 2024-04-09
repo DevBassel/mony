@@ -1,4 +1,4 @@
-import TokenCOnform from "@/src/components/tokenConfirm";
+import TokenCOnform from "@/src/components/auth/tokenConfirm";
 
 export const metadata = {
   title: "Account",

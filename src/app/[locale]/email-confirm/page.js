@@ -1,4 +1,4 @@
-import EmailConfirm from "@/src/components/email-confirm";
+import EmailConfirm from "@/src/components/auth/email-confirm";
 import { getTranslations } from "next-intl/server";
 
 export const metadata = async () => {
