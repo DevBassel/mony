@@ -25,7 +25,7 @@ export const metadata = async () => {
   };
 };
 
-const myFont = localFont({ src: "../../Fonts/Cairo.ttf" });
+const CairoFont = localFont({ src: "../../Fonts/Cairo.ttf" });
 export default function LocaleLayout({ children, params: { locale } }) {
   const messages = useMessages();
   return (
@@ -35,7 +35,7 @@ export default function LocaleLayout({ children, params: { locale } }) {
           lang={locale === "ar" ? "ar" : "en"}
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
-          <body className={myFont.className}>
+          <body className={CairoFont.className}>
             <Header />
             {children}
             <Footer />
