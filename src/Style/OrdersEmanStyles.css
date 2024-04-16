@@ -283,7 +283,7 @@
   .overly .box .close_btn {
     position: absolute;
   }
-  
+ 
   @media (min-width:992px) {
     .container .elmatador {
       display: flex;
@@ -321,4 +321,9 @@
       width: 100px;
     }
   
+  }
+
+   .continue-st{
+    color: #fff !important;
+
   }

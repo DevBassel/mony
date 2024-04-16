@@ -123,6 +123,7 @@ export default function Account() {
       setIsSubmittingPassword(false);
     },
   });
+  console.log(formikObj);
 
   return (
     isAuth && (
@@ -176,7 +177,6 @@ export default function Account() {
                       <span className="text-center">{t("btn-update")}</span>
                     </button>
                   </form>
-                  <ToastContainer />
                 </div>
                 <div className="row ">
                   <div className="col-md-10 m-5 rounded-top bg-body-tertiary p-4 ">
@@ -187,9 +187,9 @@ export default function Account() {
                           class="form-control fw-semibold text-right"
                           type="password"
                           placeholder={t("setting_form_current")}
-                          id="current"
+                          id="current_password"
                           onChange={formikObj.handleChange}
-                          name="current_password "
+                          name="current_password"
                         />
                       </div>
 
@@ -228,13 +228,12 @@ export default function Account() {
                       </button>
                     </form>
                   </div>
-                  <ToastContainer />
                 </div>
-                <ToastContainer />
               </div>
             </div>
           </div>
         </div>
+        <ToastContainer />
       </>
     )
   );

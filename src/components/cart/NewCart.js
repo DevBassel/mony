@@ -228,7 +228,7 @@ function NewCart() {
                   borderRadius: "2px",
                   padding: "10px 20px",
                 }}
-                className="btn continue-st mb-3"
+                className="btn continue-st text-white  mb-3"
               >
                 {t("cart_summry_shop")}
               </Link>
