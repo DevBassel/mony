@@ -32,7 +32,7 @@
     li {
       margin-top: 4px;
       a:hover {
-        color: #fff;
+        color: #fff !important;
         transition: all 0.6s ease;
         -webkit-transition: all 0.6s ease;
         -moz-transition: all 0.6s ease;
@@ -50,17 +50,17 @@
     .twitter,
     .linkedIn,
      .instgram {
-      color: #fff;
+      color: #fff !important;
     }
     .facebook {
       &:hover {
-      color: #4267b2;
+      color: #4267b2  !important;
       }
     }
     .twitter {
 
       &:hover {
-      color: #1da1f2;
+      color: #1da1f2 !important;
       }
     }
   }

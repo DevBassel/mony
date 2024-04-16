@@ -3,6 +3,7 @@
 import React from "react";
 import axios from "axios";
 import "../Style/Footer.css";
+import "../Style/Footer.scss";
 import {
   FaFacebookF,
   FaTwitter,
@@ -11,7 +12,6 @@ import {
 } from "react-icons/fa6";
 import { useLayoutEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "../utils/navigation";
 
 export default function Footer() {
   const t = useTranslations();

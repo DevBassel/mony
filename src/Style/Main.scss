@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Cairo", sans-serif;
+  // font-family: "Cairo", sans-serif;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 // }
 
 a {
-  color: #000 !important;
+  color: inherit !important;
   text-decoration: none !important;
 }
 .post_detail .post_desc a{

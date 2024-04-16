@@ -356,7 +356,7 @@
   margin: 0 10px 0;
 }
 .new-product .product_link {
-  color: #fff;
+  color: #fff !important;
   border-bottom: 1px solid #ffb61e;
 }
 .new-product h2,

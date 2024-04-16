@@ -279,7 +279,6 @@ function CopunCard({ cardData, sender }) {
             <button
               style={{ outline: "0" }}
               id="cart-link"
-              className="mx-2"
               onClick={() => handleOpenModal(cardData, timePercentage)}
             >
               {t("subsc_now")}
