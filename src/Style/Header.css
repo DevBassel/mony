@@ -36,10 +36,12 @@
 .header .container a
 {
   z-index: 2 !important;
-  color: #606060 !important;
 }
 
+.header a.nav-links{
+  color: #606060 !important;
 
+}
 @media (min-width:992px) {
   .header .operation > * {
     padding: 0 5px;
