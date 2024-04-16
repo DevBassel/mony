@@ -25,7 +25,7 @@ export const metadata = async () => {
   };
 };
 
-const myFont = localFont({ src: "../../Fonts/Tahoma_Font.ttf" });
+const myFont = localFont({ src: "../../Fonts/Cairo.ttf" });
 export default function LocaleLayout({ children, params: { locale } }) {
   const messages = useMessages();
   return (
