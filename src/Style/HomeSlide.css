@@ -51,6 +51,7 @@
   }
   .home-slide .text {
     text-align: center;
+    color: white !important;
   }
 }
 .home-slide .slider_head {
@@ -64,6 +65,7 @@
 .home-slide .slider_info {
   font-size: 16px;
   width: 100%;
+  color: white !important;
 }
 .home-slide .swiper-button-prev,
 .home-slide .swiper-button-next {

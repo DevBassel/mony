@@ -16,7 +16,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { tokenContext } from "../app/Context/tokenContext";
 
 function Header() {
-  const t = useTranslations();
   const logo = "/assets/images/L3.3.png";
   const CartImg = "/assets/images/cart.png";
   const locale = useLocale();
@@ -25,37 +24,6 @@ function Header() {
   console.log(pathname);
   let ttt = useContext(tokenContext);
   const [isClient, setIsClient] = useState(false);
-
-  const NavLinks = [
-    {
-      name: t("header_link_home"),
-      link: "/",
-    },
-    {
-      name: t("header_link_shop"),
-      link: "/store",
-    },
-    {
-      name: t("header_link_draws"),
-      link: "/draws",
-    },
-    {
-      name: t("header_link_winners"),
-      link: "/winners",
-    },
-    {
-      name: t("header_link_blog"),
-      link: "/blog",
-    },
-    {
-      name: t("header_link_about"),
-      link: "/about-us",
-    },
-    {
-      name: t("header_link_contact"),
-      link: "/contact",
-    },
-  ];
 
   useEffect(() => {
     setIsClient(true);
@@ -72,6 +40,7 @@ function Header() {
   const { totalItems, items } = useCart();
   const [search, setSearch] = useState(false);
   const [state, setState] = useState(false);
+  const t = useTranslations();
   const [info, setInfo] = useState({});
 
   const user =
@@ -138,19 +107,55 @@ function Header() {
             </Link>
 
             <div className="links">
-              {NavLinks.map((item) => {
-                return (
-                  <Link
-                    key={item.name}
-                    className={`me-2 nav-links ${
-                      item.link === pathname ? "active" : ""
-                    }`}
-                    href={item.link}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
+              <Link
+                className={`me-2 nav-links ${pathname === "/" ? "active" : ""}`}
+                href={"/"}
+              >
+                {t("header_link_home")}
+              </Link>
+              <Link
+                className={`me-2 nav-links ${
+                  pathname.startsWith("/store") ? "active" : ""
+                } `}
+                href={"/store"}
+              >
+                {t("header_link_shop")}
+              </Link>
+              <Link
+                className={`me-2 nav-links ${
+                  pathname.startsWith("/draws") ? "active" : ""
+                } `}
+                href={"/draws"}
+              >
+                {t("header_link_draws")}
+              </Link>
+              <Link
+                className={`me-2 nav-links ${
+                  pathname.startsWith("/winners") ? "active" : ""
+                } `}
+                href={"/winners"}
+              >
+                {t("header_link_winners")}
+              </Link>
+              {/* <Link className="me-2 nav-links" href="/blog">
+              {t("header_link_blog")}
+            </Link> */}
+              <Link
+                className={`me-2 nav-links ${
+                  pathname.startsWith("/about-us") ? "active" : ""
+                } `}
+                href={"/about-us"}
+              >
+                {t("header_link_about")}
+              </Link>
+              <Link
+                className={`me-2 nav-links ${
+                  pathname.startsWith("/contact") ? "active" : ""
+                } `}
+                href={"/contact"}
+              >
+                {t("header_link_contact")}
+              </Link>
             </div>
             <div className="operation">
               <div
