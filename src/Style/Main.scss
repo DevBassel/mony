@@ -1,13 +1,16 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap');
+
+* {
   box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
 }
 
 body {
   font-family: 'Cairo', sans-serif;
 }
-p {
-  font-family:Verdana, Geneva, Tahoma, sans-serif!important;
-}
+// p {
+//   font-family:Verdana, Geneva, Tahoma, sans-serif!important;
+// }
 
 a {
   color: #000 !important;
