@@ -4,6 +4,7 @@ import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "@/src/Style/HomeSlide.css";
+import "@/src/Style/SlideInfo.scss";
 import "@/src/Style/products.css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
