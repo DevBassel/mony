@@ -39,7 +39,7 @@
 }
 
 .header a.nav-links{
-  color: #606060 !important;
+  color: #606060 ;
 
 }
 @media (min-width:992px) {
@@ -120,9 +120,6 @@
   }
 }
 
-.nav-links.active {
-  color: #ffb61e;
-}
 
 .nav-links:hover::after {
   width: 100%;
@@ -314,4 +311,7 @@
   border: none;
   border-top: 1px solid #eee;
   color: #fff;
+}
+.nav-links.active {
+  color: #ffb61e !important;
 }
