@@ -39,7 +39,7 @@
 }
 
 .header a.nav-links{
-  color: #606060 ;
+  color: #606060 !important ;
 
 }
 @media (min-width:992px) {
@@ -312,6 +312,6 @@
   border-top: 1px solid #eee;
   color: #fff;
 }
-.nav-links.active {
+a.nav-links.active {
   color: #ffb61e !important;
 }
